@@ -6,6 +6,11 @@ variable "location" {
   default = "westeurope"
   }
 
+variable "environment_tag" {
+  default = "development"
+}
+
+
 # VM Vars
 variable "number_of_web_servers" {
   description = "Number of Web Servers"
@@ -49,11 +54,3 @@ variable "os" {
       version = "latest"
     }
   }
-
-# NIC Vars
-
-variable "nic_subnet_id" {
-  description = "Subnet that the NIC will be deployed into"
-  default = "${module.web-servers.subnet_id}"
-}
-

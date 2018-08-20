@@ -6,7 +6,7 @@ resource "azurerm_network_interface" "web-nic" {
   location = "${var.location}"
   ip_configuration {
     name = "${var.name}-${count.index}-nic-config"
-    subnet_id = "${module.subnets.web-subnet.web_subnet.id}"
+    subnet_id = "${modules.web-subnet.web_subnet.id}"
     private_ip_address_allocation = "dynamic"
   }
   tags {
@@ -18,9 +18,9 @@ resource "azurerm_virtual_machine" "web-vm" {
   name = "operational-${var.name}-${count.index}"
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
-  network_interface_ids = ["${azurerm_network_interface.web-nic.id}"]
+  network_interface_ids = ["${modules.web-servers.subnet_id}"]
   vm_size = "Standard_DS1_V2"
-  availability_set_id = "${module.server-roles.availability_sets.id}"
+  availability_set_id = "${modules.availability_sets.id}"
   delete_os_disk_on_termination = false
   delete_data_disks_on_termination = false
   storage_image_reference {

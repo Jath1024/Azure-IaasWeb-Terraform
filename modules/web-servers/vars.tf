@@ -32,16 +32,12 @@ variable "password" {
 
 variable "resource_group_name" {
   description = "Resource Group name"
-  default = ""
+  default = "iaaswebapp"
   }
 
-variable "availability_set" {
-  description = ""
-  default = ""
-  }
   variable "vm_disk_type" {
-  description = ""
-  default = ""
+  description = "VM OS disk type"
+  default = "Standard_LRS"
   }
 variable "os" {
       description = "Disk image with preinstalled OS"

@@ -20,35 +20,35 @@ resource "azurerm_resource_group" "iaaswebapp" {
 
 #Build the VNETs
 module "operational_vnet" {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/operational-vnet"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/operational-vnet"
 }
 module "mngmt_vnet" {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/mngmt-subnet"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/mngmt-subnet"
 }
 
 #Build the desired subnets with NSGs applied
 module "web_subnet" {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/web-subnet"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/web-subnet"
 }
 module "biz_subnet" {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/biz-subnet"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/biz-subnet"
 }
 module "data_subnet" {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/data-subnet"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/data-subnet"
 }
 module "adds_subnet" {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/adds-subnet"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/adds-subnet"
 }
 module "mngmt_subnet" {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/mngmt-subnet"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/mngmt-subnet"
 }
 
 # Deploy VMs, LB and availabiliity sets into each subnet
 module availability_set {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/availability-sets"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/availability-sets"
 }
 
 module web_vm {
-  source = "github.com/Jath1024/Azure-IaasWeb-Terraform/tree/master/modules/web-servers"
+  source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/web-servers"
   name = "web"
 }

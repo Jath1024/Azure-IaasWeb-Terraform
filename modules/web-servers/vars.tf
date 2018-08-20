@@ -7,7 +7,7 @@ variable "location" {
   }
 
 # VM Vars
-variable "number_of_web_servers}" {
+variable "number_of_web_servers" {
   description = "Number of Web Servers"
   default = "2"
 }

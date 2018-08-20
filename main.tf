@@ -20,28 +20,27 @@ resource "azurerm_resource_group" "iaaswebapp" {
 
 #Build the VNETs
 module "operational_vnet" {
-  source = "./modules/vnet/operational-vnet"
+  source = "./modules/operational-vnet"
 }
-
 module "mngmt_vnet" {
-  source = "./modules/vnet/mngmt-vnet"
+  source = "./modules/mngmt-vnet"
 }
 
 #Build the desired subnets with NSGs applied
 module "web_subnet" {
-  source = "./modules/subnets/web-subnet"
+  source = "./modules/web-subnet"
 }
 module "biz_subnet" {
-  source = "./modules/subnets/biz-subnet"
+  source = "./modules/biz-subnet"
 }
 module "data_subnet" {
-  source = "./modules/subnets/data-subnet"
+  source = "./modules/data-subnet"
 }
 module "adds_subnet" {
-  source = "./modules/subnets/adds-subnet"
+  source = "./modules/adds-subnet"
 }
 module "mngmt_subnet" {
-  source = "./modules/subnets/mngmt-subnet"
+  source = "./modules/mngmt-subnet"
 }
 
 # Deploy VMs, LB and availabiliity sets into each subnet
@@ -50,6 +49,6 @@ module availability_set {
 }
 
 module web_vm {
-  source = "./modules/server-roles/web-servers"
+  source = "./modules/web-servers"
   name = "web"
 }

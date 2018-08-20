@@ -54,6 +54,6 @@ variable "os" {
 
 variable "nic_subnet_id" {
   description = "Subnet that the NIC will be deployed into"
-  default = "${azurerm_subnet.web_subnet.id}"
+  default = "${module.web-servers.subnet_id}"
 }
 

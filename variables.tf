@@ -8,11 +8,6 @@ variable "location" {
   default = "uksouth"
 }
 
-variable "number_of_web_servers" {
-  description = "The number of web servers to create in the web subnet"
-  default = "2"
-}
-
 
 variable "client_id" {}
 variable "client_secret" {}

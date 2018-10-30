@@ -46,6 +46,7 @@ module "mngmt_subnet" {
 # Deploy VMs, LB and availabiliity sets into each subnet
 module availability_set {
   source = "github.com/Jath1024/Azure-IaasWeb-Terraform//modules/availability-sets"
+  name = "web_as"
 }
 
 module web_vm {

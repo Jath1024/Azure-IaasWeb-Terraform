@@ -12,4 +12,3 @@ variable "resource_group_name" {
   description = "Resource Group name"
   default = "iaaswebapp"
   }
-
